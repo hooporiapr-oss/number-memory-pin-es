@@ -35,7 +35,7 @@ body{font-family:Georgia,serif;background:linear-gradient(135deg,#0a0e27,#1a1034
 .msg.ok{color:#4ecdc4}
 .toggle{text-align:center;margin-top:10px;color:#b8b8cc;font-size:0.75em}
 .toggle span{color:#ffd700;cursor:pointer;text-decoration:underline}
-.btn{width:100%;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a1034;border:none;padding:10px;border-radius:15px;font-size:0.85em;font-weight:bold;cursor:pointer;margin-top:5px}
+.btn{width:100%;background:linear-gradient(135deg,#ffd700,#ff8c00);color:#1a1034;border:none;padding:10px;border-radius:15px;font-size:0.85em;font-weight:bold;cursor:pointer;margin-top:5px;font-family:Georgia,serif}
 .btn:active{transform:scale(0.98)}
 .btn2{background:linear-gradient(135deg,#8a2be2,#4b0082);color:#fff}
 .welcome{background:rgba(255,215,0,0.1);border:1px solid rgba(255,215,0,0.3);border-radius:8px;padding:10px;margin-bottom:10px;text-align:center}
@@ -45,138 +45,633 @@ body{font-family:Georgia,serif;background:linear-gradient(135deg,#0a0e27,#1a1034
 .stat{background:rgba(255,255,255,0.05);padding:8px;border-radius:6px;text-align:center;border:1px solid rgba(212,175,55,0.2)}
 .stat b{display:block;font-size:1.2em;color:#ffd700}
 .stat span{color:#b8b8cc;font-size:0.65em}
-.game-info{text-align:center;margin-bottom:10px}
-.game-info .level{color:#ffd700;font-size:1.2em;font-weight:bold}
-.game-info .hint{color:#b8b8cc;font-size:0.7em;margin-top:4px}
-.number-display{background:rgba(0,0,0,0.4);border:2px solid rgba(212,175,55,0.4);border-radius:12px;padding:20px;margin:10px 0;text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center}
-.number-show{font-size:2.2em;font-weight:bold;color:#ffd700;letter-spacing:6px;font-family:monospace}
-.number-input{font-size:1.8em;font-weight:bold;color:#4ecdc4;letter-spacing:4px;font-family:monospace;min-height:40px}
-.input-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:220px;margin:10px auto}
-.input-key{padding:12px;font-size:1.2em;border:2px solid rgba(212,175,55,0.3);background:rgba(255,255,255,0.08);color:#e8e8f0;border-radius:8px;cursor:pointer;font-weight:bold}
-.input-key:active{transform:scale(0.95);background:rgba(255,215,0,0.3)}
-.input-key.del{background:rgba(231,76,60,0.3);border-color:rgba(231,76,60,0.5)}
-.input-key.go{background:rgba(46,204,113,0.3);border-color:rgba(46,204,113,0.5)}
-.timer-bar{background:rgba(255,255,255,0.1);border-radius:10px;height:8px;margin:10px 0;overflow:hidden}
-.timer-fill{height:100%;background:linear-gradient(90deg,#ffd700,#ff8c00);transition:width 0.1s linear;border-radius:10px}
-.result-box{text-align:center;padding:10px}
-.result-icon{font-size:2.5em;margin-bottom:8px}
-.result-correct{color:#2ecc71}
-.result-wrong{color:#e74c3c}
-.result-numbers{margin:10px 0}
-.result-label{color:#b8b8cc;font-size:0.7em;margin-bottom:4px}
-.result-num{font-size:1.3em;font-family:monospace;letter-spacing:3px;padding:6px;border-radius:6px;margin:4px 0}
-.result-num.correct{background:rgba(46,204,113,0.2);color:#2ecc71}
-.result-num.wrong{background:rgba(231,76,60,0.2);color:#e74c3c}
+.game-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding:0 5px}
+.game-stat{text-align:center}
+.game-stat b{display:block;font-size:1.1em;color:#ffd700}
+.game-stat span{color:#b8b8cc;font-size:0.65em}
+.number-display{background:rgba(0,0,0,0.3);border-radius:12px;padding:30px 15px;margin:15px 0;text-align:center}
+.number-show{font-size:2.5em;color:#ffd700;font-weight:bold;letter-spacing:8px;font-family:monospace}
+.number-input{width:100%;padding:12px;background:rgba(255,255,255,0.1);border:2px solid rgba(212,175,55,0.5);border-radius:8px;color:#ffd700;font-size:1.5em;font-family:monospace;text-align:center;letter-spacing:5px}
+.number-input:focus{outline:none;border-color:#ffd700}
+.number-input::placeholder{color:#666;letter-spacing:2px}
+.status-msg{text-align:center;color:#ffd700;font-size:0.9em;margin:10px 0;min-height:24px}
+.progress-bar{width:100%;height:6px;background:rgba(255,255,255,0.1);border-radius:3px;margin:10px 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ffd700,#ff8c00);transition:width 0.1s linear}
 .res-bg{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);display:flex;justify-content:center;align-items:center;z-index:3000;padding:12px}
 .res{background:linear-gradient(135deg,#1a1034,#2d1b4e);border:2px solid #ffd700;border-radius:12px;padding:16px 12px;width:90%;max-width:300px;text-align:center}
 .res h2{color:#ffd700;margin-bottom:6px;font-size:1.1em}
 .res-score{font-size:2.5em;color:#ffd700;font-weight:bold}
 .res-label{color:#b8b8cc;margin-bottom:10px;font-size:0.8em}
+.res-details{display:flex;justify-content:space-around;margin:10px 0}
+.res-detail{text-align:center}
+.res-detail b{display:block;color:#ffd700;font-size:1.2em}
+.res-detail span{color:#b8b8cc;font-size:0.7em}
 .record{background:rgba(255,215,0,0.2);border:1px solid #ffd700;border-radius:5px;padding:6px;margin:8px 0;color:#ffd700;font-weight:bold;font-size:0.85em}
 .rating{color:#d4af37;margin-bottom:10px;font-size:0.85em}
+.name-input{width:100%;padding:10px;background:rgba(255,255,255,0.1);border:2px solid rgba(212,175,55,0.5);border-radius:8px;color:#e8e8f0;font-size:1em;font-family:Georgia,serif;margin-bottom:10px;text-align:center}
+.name-input:focus{outline:none;border-color:#ffd700}
+.name-input::placeholder{color:#888}
 </style>
 </head>
 <body>
 <div class="top-bar"><a href="https://hooporiapr-oss.github.io/akashic-works/" class="back">Inicio</a><div class="banner" id="bannerEl">3 gratis</div></div>
 <div class="title">Memoria de Números</div>
 <div class="subtitle">Puerto Rico</div>
+
+<!-- Login Box -->
 <div class="box" id="loginBox">
 <div class="pin-title">Ingresa tu PIN</div>
-<div class="pin-sub">Escribe tu PIN de 4 digitos</div>
+<div class="pin-sub">Escribe tu PIN de 4 dígitos</div>
 <div class="dots"><div class="dot" id="d1"></div><div class="dot" id="d2"></div><div class="dot" id="d3"></div><div class="dot" id="d4"></div></div>
 <div class="keypad" id="loginPad"></div>
 <div class="msg" id="loginMsg"></div>
-<div class="toggle">No tienes cuenta? <span id="toCreate">Crear PIN</span></div>
+<div class="toggle">¿No tienes cuenta? <span id="toCreate">Crear PIN</span></div>
 </div>
+
+<!-- Create PIN Box -->
 <div class="box hidden" id="createBox">
 <div class="pin-title" id="createTitle">Crear PIN</div>
-<div class="pin-sub" id="createSub">Escoge un PIN de 4 digitos</div>
+<div class="pin-sub" id="createSub">Escoge un PIN de 4 dígitos</div>
 <div class="dots"><div class="dot" id="c1"></div><div class="dot" id="c2"></div><div class="dot" id="c3"></div><div class="dot" id="c4"></div></div>
 <div class="keypad" id="createPad"></div>
 <div class="msg" id="createMsg"></div>
-<div class="toggle">Ya tienes PIN? <span id="toLogin">Entrar</span></div>
+<div class="toggle">¿Ya tienes PIN? <span id="toLogin">Entrar</span></div>
 </div>
+
+<!-- Name Setup Box -->
+<div class="box hidden" id="nameBox">
+<div class="pin-title">Nombre de Usuario</div>
+<div class="pin-sub">Escoge un nombre para la tabla de líderes</div>
+<input type="text" class="name-input" id="nameInput" placeholder="Tu nombre" maxlength="15">
+<button class="btn" id="saveNameBtn">Guardar Nombre</button>
+<div class="msg" id="nameMsg"></div>
+</div>
+
+<!-- Dashboard -->
 <div class="box hidden" id="dashBox">
-<div class="welcome"><h3>Bienvenido!</h3><p>Prueba tu memoria de numeros</p></div>
-<div class="stats"><div class="stat"><b id="dGames">0</b><span>Juegos</span></div><div class="stat"><b id="dBest">0</b><span>Mejor Nivel</span></div><div class="stat"><b id="dAvg">--</b><span>Promedio</span></div><div class="stat"><b id="dRate">--</b><span>Nivel</span></div></div>
+<div class="welcome"><h3 id="welcomeName">¡Bienvenido!</h3><p>Recuerda los números mostrados</p></div>
+<div class="stats"><div class="stat"><b id="dGames">0</b><span>Juegos</span></div><div class="stat"><b id="dBest">--</b><span>Mejor Nivel</span></div><div class="stat"><b id="dAvg">--</b><span>Promedio</span></div><div class="stat"><b id="dRate">--</b><span>Nivel</span></div></div>
 <button class="btn" id="startBtn">Comenzar</button>
 <button class="btn btn2" id="logoutBtn">Salir</button>
 </div>
+
+<!-- Game Box -->
 <div class="box hidden" id="gameBox">
-<div class="game-info"><div class="level">Nivel <span id="gLevel">1</span></div><div class="hint" id="gHint">Memoriza el numero</div></div>
-<div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
-<div class="number-display"><div class="number-show" id="numberShow"></div><div class="number-input hidden" id="numberInput">-</div></div>
-<div class="input-keypad hidden" id="inputPad"></div>
+<div class="game-info"><div class="game-stat"><b id="gLevel">1</b><span>Nivel</span></div><div class="game-stat"><b id="gDigits">3</b><span>Dígitos</span></div><div class="game-stat"><b id="gScore">0</b><span>Puntos</span></div></div>
+<div class="status-msg" id="statusMsg">Memoriza el número...</div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="number-display">
+<div class="number-show" id="numberShow">123</div>
+<input type="tel" class="number-input hidden" id="numberInput" placeholder="Escribe el número" maxlength="15">
+</div>
+<button class="btn hidden" id="submitBtn">Enviar</button>
 <button class="btn btn2" id="quitBtn">Salir</button>
 </div>
-<div class="box hidden" id="resultBox">
-<div class="result-box">
-<div class="result-icon" id="resultIcon">!</div>
-<div class="result-numbers"><div class="result-label">El numero era:</div><div class="result-num correct" id="correctNum"></div><div class="result-label">Tu respuesta:</div><div class="result-num" id="yourNum"></div></div>
-<button class="btn" id="nextBtn">Siguiente Nivel</button>
-<button class="btn btn2" id="retryBtn">Intentar Otra Vez</button>
-</div>
-</div>
+
+<!-- Results -->
 <div class="res-bg hidden" id="resBg">
 <div class="res">
-<h2>Fin del Juego!</h2>
+<h2>¡Fin del Juego!</h2>
 <div class="res-score" id="resLevel">0</div>
-<div class="res-label">Niveles Completados</div>
-<div class="record hidden" id="resRecord">Nuevo Record!</div>
+<div class="res-label">Nivel Alcanzado</div>
+<div class="res-details"><div class="res-detail"><b id="resDigits">0</b><span>Máx Dígitos</span></div><div class="res-detail"><b id="resScore">0</b><span>Puntos</span></div></div>
+<div class="record hidden" id="resRecord">¡Nuevo Récord!</div>
 <div class="rating" id="resRating">Nivel: --</div>
 <button class="btn" id="againBtn">Jugar Otra Vez</button>
-<button class="btn btn2" id="menuBtn">Menu</button>
+<button class="btn btn2" id="menuBtn">Menú</button>
 </div>
 </div>
+
+<!-- Limit Popup -->
 <div class="popup-bg hidden" id="limitPopup">
 <div class="popup">
-<h3 id="limitTitle">Limite diario alcanzado</h3>
+<h3 id="limitTitle">Límite diario alcanzado</h3>
 <p id="limitMsg">Usaste tus 3 juegos gratis hoy</p>
 <a href="https://hooporiapr-oss.github.io/akashic-works/">Volver al Inicio</a>
 <button id="upgradeBtn">Desbloquear Ilimitado</button>
 </div>
 </div>
+
 <script>
 (function(){
-var PK="nmpr2_pin",SK="nmpr2_stats_",DK="nmpr2_device",MAX_DAILY=3,MAX_DAYS=3;
-var currentPin="",level=0,currentNumber="",userInput="",timerInt=null;
-function $(id){return document.getElementById(id);}
-function getDeviceId(){var id=localStorage.getItem(DK);if(!id){id='dev_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);localStorage.setItem(DK,id);}return id;}
-function getToday(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();}
-function getDeviceTries(){var key=DK+"_tries";try{var t=JSON.parse(localStorage.getItem(key));if(t&&t.startDate)return t;}catch(e){}return{n:0,d:getToday(),startDate:getToday(),daysUsed:[]};}
-function setDeviceTries(t){localStorage.setItem(DK+"_tries",JSON.stringify(t));}
-function getDaysDiff(startDate){var start=new Date(startDate);var now=new Date();return Math.floor((now-start)/(1000*60*60*24));}
-function canPlay(){var t=getDeviceTries(),today=getToday();var daysSinceStart=getDaysDiff(t.startDate);if(daysSinceStart>=MAX_DAYS)return{ok:false,left:0,expired:true,daysLeft:0};if(t.d!==today){t.n=0;t.d=today;if(t.daysUsed.indexOf(today)===-1)t.daysUsed.push(today);setDeviceTries(t);}return{ok:t.n<MAX_DAILY,left:MAX_DAILY-t.n,expired:false,daysLeft:MAX_DAYS-daysSinceStart};}
-function useTry(){var t=getDeviceTries(),today=getToday();if(t.d!==today){t.n=0;t.d=today;if(t.daysUsed.indexOf(today)===-1)t.daysUsed.push(today);}t.n++;setDeviceTries(t);showBanner();}
-function hash(p){var h=0,s=p+"nmpr2";for(var i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h&=h;}return h.toString(36);}
-function getPins(){try{return JSON.parse(localStorage.getItem(PK))||{};}catch(e){return{};}}
-function savePins(p){localStorage.setItem(PK,JSON.stringify(p));}
-function checkPin(p){return!!getPins()[hash(p)];}
-function savePin(p){var pins=getPins();pins[hash(p)]={created:Date.now()};savePins(pins);}
-function getStats(){try{return JSON.parse(localStorage.getItem(SK+hash(currentPin)))||{games:0,bestLevel:0,totalLevels:0};}catch(e){return{games:0,bestLevel:0,totalLevels:0};}}
-function setStats(s){localStorage.setItem(SK+hash(currentPin),JSON.stringify(s));}
-function showBanner(){var c=canPlay();$("bannerEl").textContent=c.expired?"Prueba terminada":c.left+"/"+MAX_DAILY+" (Dia "+c.daysLeft+")";}
-function showLimit(){var c=canPlay();$("limitTitle").textContent=c.expired?"Prueba gratis terminada":"Limite diario alcanzado";$("limitMsg").textContent=c.expired?"Tu prueba gratis de 3 dias ha expirado":"Usaste "+MAX_DAILY+" juegos gratis hoy. "+c.daysLeft+" dia(s) restantes.";$("limitPopup").classList.remove("hidden");}
-function show(id){["loginBox","createBox","dashBox","gameBox","resultBox"].forEach(function(x){$(x).classList.add("hidden");});$(id).classList.remove("hidden");}
-function setDots(pre,n){for(var i=1;i<=4;i++){var el=$(pre+i);if(el){if(i<=n)el.classList.add("on");else el.classList.remove("on");}}}
-function setMsg(id,t,isErr){var m=$(id);m.textContent=t;m.className="msg "+(isErr?"err":"ok");}
-function getRating(lvl){if(!lvl||lvl<1)return"--";if(lvl>=10)return"Genio";if(lvl>=8)return"Experto";if(lvl>=6)return"Excelente";if(lvl>=4)return"Bueno";return"Aprendiz";}
-var loginPin="",createPin="",confirmPin="",isConfirming=false;
-function buildKeypad(cid,onDigit,onDel){var c=$(cid);c.innerHTML="";for(var i=1;i<=9;i++){(function(d){var b=document.createElement("button");b.className="key";b.textContent=d;b.onclick=function(){onDigit(d);};c.appendChild(b);})(i);}var e=document.createElement("button");e.className="key empty";c.appendChild(e);var z=document.createElement("button");z.className="key";z.textContent="0";z.onclick=function(){onDigit(0);};c.appendChild(z);var del=document.createElement("button");del.className="key";del.textContent="<";del.onclick=onDel;c.appendChild(del);}
-function setupLogin(){buildKeypad("loginPad",function(d){if(loginPin.length<4){loginPin+=d;setDots("d",loginPin.length);if(loginPin.length===4){setTimeout(function(){if(checkPin(loginPin)){currentPin=loginPin;loadDash();}else{setMsg("loginMsg","PIN incorrecto",true);loginPin="";setDots("d",0);}},200);}}},function(){if(loginPin.length>0){loginPin=loginPin.slice(0,-1);setDots("d",loginPin.length);$("loginMsg").textContent="";}});}
-function setupCreate(){buildKeypad("createPad",function(d){if(confirmPin.length<4){confirmPin+=d;setDots("c",confirmPin.length);if(confirmPin.length===4){setTimeout(function(){if(!isConfirming){createPin=confirmPin;confirmPin="";isConfirming=true;$("createTitle").textContent="Confirmar PIN";$("createSub").textContent="Escribe el PIN otra vez";setDots("c",0);}else{if(confirmPin===createPin){savePin(createPin);currentPin=createPin;setMsg("createMsg","PIN creado!",false);setTimeout(loadDash,500);}else{setMsg("createMsg","PINs no coinciden",true);createPin="";confirmPin="";isConfirming=false;$("createTitle").textContent="Crear PIN";$("createSub").textContent="Escoge un PIN de 4 digitos";setDots("c",0);}}},200);}}},function(){if(confirmPin.length>0){confirmPin=confirmPin.slice(0,-1);setDots("c",confirmPin.length);$("createMsg").textContent="";}});}
-function loadDash(){var s=getStats();$("dGames").textContent=s.games||0;$("dBest").textContent=s.bestLevel||0;$("dAvg").textContent=s.games>0?Math.round(s.totalLevels/s.games):"--";$("dRate").textContent=getRating(s.bestLevel);show("dashBox");showBanner();if(!canPlay().ok)showLimit();}
-function generateNumber(digits){var n="";for(var i=0;i<digits;i++)n+=Math.floor(Math.random()*10);return n;}
-function getDisplayTime(lvl){return Math.max(1500,1500+(lvl*400));}
-function buildInputKeypad(){var c=$("inputPad");c.innerHTML="";for(var i=1;i<=9;i++){(function(d){var b=document.createElement("button");b.className="input-key";b.textContent=d;b.onclick=function(){addDigit(d);};c.appendChild(b);})(i);}var del=document.createElement("button");del.className="input-key del";del.textContent="<";del.onclick=delDigit;c.appendChild(del);var zero=document.createElement("button");zero.className="input-key";zero.textContent="0";zero.onclick=function(){addDigit(0);};c.appendChild(zero);var sub=document.createElement("button");sub.className="input-key go";sub.textContent="OK";sub.onclick=submitAnswer;c.appendChild(sub);}
-function addDigit(d){if(userInput.length<currentNumber.length+2){userInput+=d;$("numberInput").textContent=userInput||"-";}}
-function delDigit(){if(userInput.length>0){userInput=userInput.slice(0,-1);$("numberInput").textContent=userInput||"-";}}
-function startGame(){if(!canPlay().ok){showLimit();return;}level=0;nextLevel();}
-function nextLevel(){level++;currentNumber=generateNumber(level+2);userInput="";$("gLevel").textContent=level;$("gHint").textContent="Memoriza el numero";$("numberShow").textContent=currentNumber;$("numberShow").classList.remove("hidden");$("numberInput").classList.add("hidden");$("inputPad").classList.add("hidden");$("timerFill").style.width="100%";show("gameBox");var displayTime=getDisplayTime(level);var startTime=Date.now();if(timerInt)clearInterval(timerInt);timerInt=setInterval(function(){var elapsed=Date.now()-startTime;var pct=Math.max(0,100-(elapsed/displayTime*100));$("timerFill").style.width=pct+"%";if(elapsed>=displayTime){clearInterval(timerInt);showInput();}},50);}
-function showInput(){$("gHint").textContent="Escribe el numero";$("numberShow").classList.add("hidden");$("numberInput").classList.remove("hidden");$("numberInput").textContent="-";$("inputPad").classList.remove("hidden");buildInputKeypad();}
-function submitAnswer(){if(timerInt)clearInterval(timerInt);var correct=userInput===currentNumber;$("correctNum").textContent=currentNumber;$("yourNum").textContent=userInput||"-";$("yourNum").className="result-num "+(correct?"correct":"wrong");if(correct){$("resultIcon").textContent="✓";$("resultIcon").className="result-icon result-correct";$("nextBtn").classList.remove("hidden");$("retryBtn").classList.add("hidden");}else{$("resultIcon").textContent="✗";$("resultIcon").className="result-icon result-wrong";$("nextBtn").classList.add("hidden");$("retryBtn").classList.remove("hidden");}show("resultBox");if(!correct){setTimeout(function(){endGame();},100);}}
-function endGame(){var finalLevel=level-1;var s=getStats();s.games++;s.totalLevels+=finalLevel;var isRec=finalLevel>s.bestLevel;if(isRec)s.bestLevel=finalLevel;setStats(s);useTry();$("resLevel").textContent=finalLevel;$("resRating").textContent="Nivel: "+getRating(finalLevel);if(isRec&&finalLevel>0){$("resRecord").classList.remove("hidden");}else{$("resRecord").classList.add("hidden");}$("resBg").classList.remove("hidden");if(!canPlay().ok)setTimeout(showLimit,1500);}
-document.addEventListener("DOMContentLoaded",function(){getDeviceId();setupLogin();setupCreate();$("toCreate").onclick=function(){createPin="";confirmPin="";isConfirming=false;$("createTitle").textContent="Crear PIN";$("createSub").textContent="Escoge un PIN de 4 digitos";setDots("c",0);$("createMsg").textContent="";show("createBox");};$("toLogin").onclick=function(){loginPin="";setDots("d",0);$("loginMsg").textContent="";show("loginBox");};$("startBtn").onclick=function(){if(!canPlay().ok){showLimit();return;}startGame();};$("logoutBtn").onclick=function(){loginPin="";currentPin="";setDots("d",0);show("loginBox");};$("quitBtn").onclick=function(){if(timerInt)clearInterval(timerInt);if(level>1)endGame();else loadDash();};$("nextBtn").onclick=nextLevel;$("retryBtn").onclick=function(){$("resBg").classList.remove("hidden");};$("againBtn").onclick=function(){$("resBg").classList.add("hidden");if(!canPlay().ok){showLimit();return;}startGame();};$("menuBtn").onclick=function(){$("resBg").classList.add("hidden");loadDash();};$("upgradeBtn").onclick=function(){location.href="mailto:support@akashic.works?subject=Pro%20Upgrade";};show("loginBox");showBanner();});
+    var PK = "ak_pins";
+    var UK = "ak_users";
+    var SK = "nmes2_stats_";
+    var DK = "nmes2_device";
+    var MAX_DAILY = 3;
+    var MAX_DAYS = 3;
+    
+    var currentPin = "";
+    var currentUser = null;
+    var level = 1;
+    var score = 0;
+    var currentNumber = "";
+    var showTime = 2000;
+    var timerInterval = null;
+    
+    function $(id) { return document.getElementById(id); }
+    
+    function hash(p) {
+        var h = 0;
+        var s = p + "akashic";
+        for (var i = 0; i < s.length; i++) {
+            h = ((h << 5) - h) + s.charCodeAt(i);
+            h = h & h;
+        }
+        return h.toString(36);
+    }
+    
+    function getPins() {
+        try { return JSON.parse(localStorage.getItem(PK)) || {}; }
+        catch (e) { return {}; }
+    }
+    
+    function savePins(p) { localStorage.setItem(PK, JSON.stringify(p)); }
+    
+    function checkPin(p) { return !!getPins()[hash(p)]; }
+    
+    function savePin(p) {
+        var pins = getPins();
+        pins[hash(p)] = { created: Date.now() };
+        savePins(pins);
+    }
+    
+    function getUsers() {
+        try { return JSON.parse(localStorage.getItem(UK)) || {}; }
+        catch (e) { return {}; }
+    }
+    
+    function saveUsers(u) { localStorage.setItem(UK, JSON.stringify(u)); }
+    
+    function getUser(pinHash) {
+        return getUsers()[pinHash] || null;
+    }
+    
+    function saveUser(pinHash, userData) {
+        var users = getUsers();
+        users[pinHash] = userData;
+        saveUsers(users);
+    }
+    
+    function getDeviceId() {
+        var id = localStorage.getItem(DK);
+        if (!id) {
+            id = "dev_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem(DK, id);
+        }
+        return id;
+    }
+    
+    function getToday() {
+        var d = new Date();
+        return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+    }
+    
+    function getDeviceTries() {
+        var key = DK + "_tries";
+        try {
+            var t = JSON.parse(localStorage.getItem(key));
+            if (t && t.startDate) return t;
+        } catch (e) {}
+        return { n: 0, d: getToday(), startDate: getToday() };
+    }
+    
+    function setDeviceTries(t) {
+        localStorage.setItem(DK + "_tries", JSON.stringify(t));
+    }
+    
+    function getDaysDiff(startDate) {
+        var start = new Date(startDate);
+        var now = new Date();
+        return Math.floor((now - start) / (1000 * 60 * 60 * 24));
+    }
+    
+    function canPlay() {
+        var t = getDeviceTries();
+        var today = getToday();
+        var daysSinceStart = getDaysDiff(t.startDate);
+        
+        if (daysSinceStart >= MAX_DAYS) {
+            return { ok: false, left: 0, expired: true, daysLeft: 0 };
+        }
+        
+        if (t.d !== today) {
+            t.n = 0;
+            t.d = today;
+            setDeviceTries(t);
+        }
+        
+        return {
+            ok: t.n < MAX_DAILY,
+            left: MAX_DAILY - t.n,
+            expired: false,
+            daysLeft: MAX_DAYS - daysSinceStart
+        };
+    }
+    
+    function useTry() {
+        var t = getDeviceTries();
+        var today = getToday();
+        if (t.d !== today) {
+            t.n = 0;
+            t.d = today;
+        }
+        t.n++;
+        setDeviceTries(t);
+        showBanner();
+    }
+    
+    function getStats() {
+        try {
+            return JSON.parse(localStorage.getItem(SK + hash(currentPin))) || { games: 0, bestLevel: 0, totalLevel: 0 };
+        } catch (e) {
+            return { games: 0, bestLevel: 0, totalLevel: 0 };
+        }
+    }
+    
+    function setStats(s) {
+        localStorage.setItem(SK + hash(currentPin), JSON.stringify(s));
+    }
+    
+    function showBanner() {
+        var c = canPlay();
+        if (c.expired) {
+            $("bannerEl").textContent = "Prueba terminada";
+        } else {
+            $("bannerEl").textContent = c.left + "/" + MAX_DAILY + " (Día " + c.daysLeft + ")";
+        }
+    }
+    
+    function showLimit() {
+        var c = canPlay();
+        if (c.expired) {
+            $("limitTitle").textContent = "Prueba gratis terminada";
+            $("limitMsg").textContent = "Tu prueba gratis de 3 días ha expirado";
+        } else {
+            $("limitTitle").textContent = "Límite diario alcanzado";
+            $("limitMsg").textContent = "Usaste " + MAX_DAILY + " juegos gratis hoy. " + c.daysLeft + " día(s) restantes.";
+        }
+        $("limitPopup").classList.remove("hidden");
+    }
+    
+    function show(id) {
+        ["loginBox", "createBox", "nameBox", "dashBox", "gameBox"].forEach(function(x) {
+            $(x).classList.add("hidden");
+        });
+        $(id).classList.remove("hidden");
+    }
+    
+    function setDots(pre, n) {
+        for (var i = 1; i <= 4; i++) {
+            var el = $(pre + i);
+            if (el) {
+                if (i <= n) el.classList.add("on");
+                else el.classList.remove("on");
+            }
+        }
+    }
+    
+    function setMsg(id, t, isErr) {
+        var m = $(id);
+        m.textContent = t;
+        m.className = "msg " + (isErr ? "err" : "ok");
+    }
+    
+    function getRating(lvl) {
+        if (!lvl || lvl < 1) return "--";
+        if (lvl >= 10) return "Genio";
+        if (lvl >= 8) return "Experto";
+        if (lvl >= 6) return "Excelente";
+        if (lvl >= 4) return "Bueno";
+        return "Aprendiz";
+    }
+    
+    var loginPin = "";
+    var createPin = "";
+    var confirmPin = "";
+    var isConfirming = false;
+    
+    function buildKeypad(containerId, onDigit, onDelete) {
+        var container = $(containerId);
+        container.innerHTML = "";
+        
+        for (var i = 1; i <= 9; i++) {
+            (function(digit) {
+                var btn = document.createElement("button");
+                btn.className = "key";
+                btn.textContent = digit;
+                btn.onclick = function() { onDigit(digit); };
+                container.appendChild(btn);
+            })(i);
+        }
+        
+        var empty = document.createElement("button");
+        empty.className = "key empty";
+        container.appendChild(empty);
+        
+        var zero = document.createElement("button");
+        zero.className = "key";
+        zero.textContent = "0";
+        zero.onclick = function() { onDigit(0); };
+        container.appendChild(zero);
+        
+        var del = document.createElement("button");
+        del.className = "key";
+        del.textContent = "←";
+        del.onclick = onDelete;
+        container.appendChild(del);
+    }
+    
+    function setupLogin() {
+        buildKeypad("loginPad", function(digit) {
+            if (loginPin.length < 4) {
+                loginPin += digit;
+                setDots("d", loginPin.length);
+                if (loginPin.length === 4) {
+                    setTimeout(function() {
+                        if (checkPin(loginPin)) {
+                            currentPin = loginPin;
+                            currentUser = getUser(hash(currentPin));
+                            if (currentUser && currentUser.name) {
+                                loadDash();
+                            } else {
+                                show("nameBox");
+                            }
+                        } else {
+                            setMsg("loginMsg", "PIN incorrecto", true);
+                            loginPin = "";
+                            setDots("d", 0);
+                        }
+                    }, 200);
+                }
+            }
+        }, function() {
+            if (loginPin.length > 0) {
+                loginPin = loginPin.slice(0, -1);
+                setDots("d", loginPin.length);
+                $("loginMsg").textContent = "";
+            }
+        });
+    }
+    
+    function setupCreate() {
+        buildKeypad("createPad", function(digit) {
+            if (confirmPin.length < 4) {
+                confirmPin += digit;
+                setDots("c", confirmPin.length);
+                if (confirmPin.length === 4) {
+                    setTimeout(function() {
+                        if (!isConfirming) {
+                            createPin = confirmPin;
+                            confirmPin = "";
+                            isConfirming = true;
+                            $("createTitle").textContent = "Confirmar PIN";
+                            $("createSub").textContent = "Escribe el PIN otra vez";
+                            setDots("c", 0);
+                        } else {
+                            if (confirmPin === createPin) {
+                                savePin(createPin);
+                                currentPin = createPin;
+                                setMsg("createMsg", "¡PIN creado!", false);
+                                setTimeout(function() {
+                                    show("nameBox");
+                                }, 500);
+                            } else {
+                                setMsg("createMsg", "PINs no coinciden", true);
+                                createPin = "";
+                                confirmPin = "";
+                                isConfirming = false;
+                                $("createTitle").textContent = "Crear PIN";
+                                $("createSub").textContent = "Escoge un PIN de 4 dígitos";
+                                setDots("c", 0);
+                            }
+                        }
+                    }, 200);
+                }
+            }
+        }, function() {
+            if (confirmPin.length > 0) {
+                confirmPin = confirmPin.slice(0, -1);
+                setDots("c", confirmPin.length);
+                $("createMsg").textContent = "";
+            }
+        });
+    }
+    
+    function loadDash() {
+        var s = getStats();
+        $("welcomeName").textContent = "¡Bienvenido, " + (currentUser ? currentUser.name : "Jugador") + "!";
+        $("dGames").textContent = s.games || 0;
+        $("dBest").textContent = s.bestLevel || "--";
+        $("dAvg").textContent = s.games > 0 ? Math.round(s.totalLevel / s.games) : "--";
+        $("dRate").textContent = getRating(s.bestLevel);
+        show("dashBox");
+        showBanner();
+        if (!canPlay().ok) showLimit();
+    }
+    
+    function generateNumber(digits) {
+        var num = "";
+        for (var i = 0; i < digits; i++) {
+            if (i === 0) {
+                num += Math.floor(Math.random() * 9) + 1;
+            } else {
+                num += Math.floor(Math.random() * 10);
+            }
+        }
+        return num;
+    }
+    
+    function getDigitsForLevel(lvl) {
+        return Math.min(2 + lvl, 15);
+    }
+    
+    function startRound() {
+        var digits = getDigitsForLevel(level);
+        currentNumber = generateNumber(digits);
+        showTime = 1000 + (digits * 500);
+        
+        $("gLevel").textContent = level;
+        $("gDigits").textContent = digits;
+        $("statusMsg").textContent = "Memoriza el número...";
+        $("numberShow").textContent = currentNumber;
+        $("numberShow").classList.remove("hidden");
+        $("numberInput").classList.add("hidden");
+        $("numberInput").value = "";
+        $("submitBtn").classList.add("hidden");
+        $("progressFill").style.width = "100%";
+        
+        var startTime = Date.now();
+        if (timerInterval) clearInterval(timerInterval);
+        
+        timerInterval = setInterval(function() {
+            var elapsed = Date.now() - startTime;
+            var remaining = Math.max(0, 100 - (elapsed / showTime * 100));
+            $("progressFill").style.width = remaining + "%";
+            
+            if (elapsed >= showTime) {
+                clearInterval(timerInterval);
+                showInput();
+            }
+        }, 50);
+    }
+    
+    function showInput() {
+        $("statusMsg").textContent = "¡Escribe el número!";
+        $("numberShow").classList.add("hidden");
+        $("numberInput").classList.remove("hidden");
+        $("numberInput").focus();
+        $("submitBtn").classList.remove("hidden");
+        $("progressFill").style.width = "0%";
+    }
+    
+    function checkAnswer() {
+        var answer = $("numberInput").value.trim();
+        
+        if (answer === currentNumber) {
+            score += level * 10;
+            $("gScore").textContent = score;
+            $("statusMsg").textContent = "¡Correcto! 🎉";
+            level++;
+            setTimeout(startRound, 1000);
+        } else {
+            $("statusMsg").textContent = "¡Error! Era " + currentNumber;
+            setTimeout(endGame, 2000);
+        }
+    }
+    
+    function startGame() {
+        if (!canPlay().ok) {
+            showLimit();
+            return;
+        }
+        
+        level = 1;
+        score = 0;
+        $("gScore").textContent = "0";
+        show("gameBox");
+        startRound();
+    }
+    
+    function endGame() {
+        if (timerInterval) clearInterval(timerInterval);
+        
+        var s = getStats();
+        s.games++;
+        s.totalLevel += level;
+        var isRecord = level > (s.bestLevel || 0);
+        if (isRecord) s.bestLevel = level;
+        setStats(s);
+        
+        useTry();
+        
+        $("resLevel").textContent = level;
+        $("resDigits").textContent = getDigitsForLevel(level);
+        $("resScore").textContent = score;
+        $("resRating").textContent = "Nivel: " + getRating(level);
+        
+        if (isRecord) {
+            $("resRecord").classList.remove("hidden");
+        } else {
+            $("resRecord").classList.add("hidden");
+        }
+        
+        $("resBg").classList.remove("hidden");
+        
+        if (!canPlay().ok) {
+            setTimeout(showLimit, 1500);
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        getDeviceId();
+        setupLogin();
+        setupCreate();
+        
+        $("toCreate").onclick = function() {
+            createPin = "";
+            confirmPin = "";
+            isConfirming = false;
+            $("createTitle").textContent = "Crear PIN";
+            $("createSub").textContent = "Escoge un PIN de 4 dígitos";
+            setDots("c", 0);
+            $("createMsg").textContent = "";
+            show("createBox");
+        };
+        
+        $("toLogin").onclick = function() {
+            loginPin = "";
+            setDots("d", 0);
+            $("loginMsg").textContent = "";
+            show("loginBox");
+        };
+        
+        $("saveNameBtn").onclick = function() {
+            var name = $("nameInput").value.trim();
+            if (name.length < 2) {
+                setMsg("nameMsg", "Nombre muy corto (mín 2)", true);
+                return;
+            }
+            if (name.length > 15) {
+                setMsg("nameMsg", "Nombre muy largo (máx 15)", true);
+                return;
+            }
+            
+            currentUser = { name: name, created: Date.now() };
+            saveUser(hash(currentPin), currentUser);
+            loadDash();
+        };
+        
+        $("startBtn").onclick = function() {
+            if (!canPlay().ok) {
+                showLimit();
+                return;
+            }
+            startGame();
+        };
+        
+        $("logoutBtn").onclick = function() {
+            loginPin = "";
+            currentPin = "";
+            currentUser = null;
+            setDots("d", 0);
+            show("loginBox");
+        };
+        
+        $("quitBtn").onclick = function() {
+            if (timerInterval) clearInterval(timerInterval);
+            loadDash();
+        };
+        
+        $("submitBtn").onclick = checkAnswer;
+        
+        $("numberInput").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                checkAnswer();
+            }
+        });
+        
+        $("againBtn").onclick = function() {
+            $("resBg").classList.add("hidden");
+            if (!canPlay().ok) {
+                showLimit();
+                return;
+            }
+            startGame();
+        };
+        
+        $("menuBtn").onclick = function() {
+            $("resBg").classList.add("hidden");
+            loadDash();
+        };
+        
+        $("upgradeBtn").onclick = function() {
+            window.location.href = "mailto:support@akashic.works?subject=Pro%20Upgrade";
+        };
+        
+        show("loginBox");
+        showBanner();
+    });
 })();
 </script>
 </body>
